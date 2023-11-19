@@ -1,0 +1,28 @@
+ion-content {
+  ion-list {
+    ion-item{
+      img{
+        border-radius: 0;
+        max-width: 100px; /* Establecer el ancho máximo de la imagen */
+        height: auto; /* Ajustar la altura automáticamente */
+        padding-right: 3px;
+      }
+
+      ion-label {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+
+        h2 {
+          font-size: 1.2em;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-size: 0.9em;
+          color: #777;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Cliente</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input [(ngModel)]="editedClient.name" placeholder="Nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Dirección</ion-label>
+    <ion-input [(ngModel)]="editedClient.address" placeholder="Dirección"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input [(ngModel)]="editedClient.email" placeholder="Email"></ion-input>
+  </ion-item>
+
+  <!-- Agrega más campos aquí según sea necesario -->
+
+  <ion-button expand="full" color="primary" (click)="updateClient()">Guardar Cambios</ion-button>
+</ion-content>

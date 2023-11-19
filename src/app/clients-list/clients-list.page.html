@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Clients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let client of clients" (click)="openClientDetailsModal(client)">
+      <img [src]="client.photo" alt="Client Photo">
+      
+      <ion-label>
+        <h2>Nombre: {{ client.name }}</h2>
+        <p>Dirección: {{ client.address }}</p>
+        <p>E-mail: {{ client.email }}</p>
+        <p>Teléfono: {{ client.phone }}</p>
+        <!-- <p>{{ client.photo }}</p> HACER QUE ESTO SEA LA IMAGEN QUE SE MUESTRA Y BORRARLO DE AQUÍ -->
+        <p>Fecha de pago: {{ client.paymentDate }}</p>
+        <p>Día de pago: {{ client.day }}</p>
+        <p>Hora de pago: {{ client.hour }}</p>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+</ion-content>

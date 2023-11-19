@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="full" (click)="goToClientsList()">Clientes</ion-button>
+  <ion-button expand="full" routerLink="/productos">Productos</ion-button>
+  <ion-button expand="full" routerLink="/vender">Vender</ion-button>
+  <ion-button expand="full" routerLink="/reportes">Reportes</ion-button>
+</ion-content>
