@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 //IMPORTAR AQUÍ EL MODULO DE SELECCIÓN DE PRODUCTOS
+//COMENTARIO DE PRUEBA
 
 @Component({
   selector: 'app-products-list',
