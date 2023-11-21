@@ -28,9 +28,10 @@ export class ClientDetailsModalComponent {
   async deleteClient() {
     // Aquí, deberías llamar al servicio PHP para eliminar el cliente
     const clientId = await this.clientDetails.id; // Ajusta esto según tu estructura de datos
+    const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/clients/deleteCLIENT.php?id=${clientId}`;
   
     // Llama al servicio para eliminar el cliente
-    await this.http.get(`https://samuelucol.000webhostapp.com/PROYECTO5i/clients/deleteCLIENT.php?id=${clientId}`).subscribe(
+    await this.http.get(url).subscribe(
       (response: any) => {
         if (response.success) {
           console.log('Cliente eliminado con éxito');
@@ -44,6 +45,11 @@ export class ClientDetailsModalComponent {
         // Maneja los errores de red según sea necesario
       }
     );
+  }
+
+  async openProductsToClient(clientId: number){
+    this.router.navigate(['/client-product-list', { id: clientId }]);
+    this.dismiss();
   }
 
   // async editClient() {

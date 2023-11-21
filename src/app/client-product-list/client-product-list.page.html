@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/client-details-modal"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <img [src]="product.img" alt="Product Photo">
+      
+      <ion-label>
+        <h2>Nombre: {{ product.name }}</h2>
+        <p>Descripción: {{ product.description }}</p>
+        <p>Cantidad: {{ product.quantity }}</p>
+        <p>Precio de venta: {{ product.sellPrice }}MXN</p>
+        <p>Precio de costo: {{ product.costPrice }}MXN</p>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+</ion-content>
