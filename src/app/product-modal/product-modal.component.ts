@@ -14,14 +14,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-modal.component.scss'],
 })
 export class ProductModalComponent {
+  @Input() productDetails: any;
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private http: HttpClient) {}
 
   dismiss(){
     this.modalController.dismiss();
   }
 
-  deleteProduct(){
-    console.log('Cliente eliminado');
+  async deleteProduct(){
+    const productId = await this.productDetails.id;
+    const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/products/deletePRODUCT.php?id=${productId}`;
+
+    await this.http.get(url).subscribe(
+      (response: any) => {
+        if (response.success) {
+          console.log('Producto eliminado con éxito');
+          this.dismiss();
+        } else {
+          console.error('Error al eliminar el producto');
+        }
+      },
+      (error) => {
+        console.error('Error de red al intentar eliminar el producto', error);
+      }
+    );
   }
 }

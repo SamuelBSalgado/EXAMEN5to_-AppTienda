@@ -27,7 +27,7 @@ export class ClientDetailsModalComponent {
 
   async deleteClient() {
     // Aquí, deberías llamar al servicio PHP para eliminar el cliente
-    const clientId = await this.clientDetails.id; // Ajusta esto según tu estructura de datos
+    const clientId = await this.clientDetails.id;
     const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/clients/deleteCLIENT.php?id=${clientId}`;
   
     // Llama al servicio para eliminar el cliente
@@ -42,7 +42,6 @@ export class ClientDetailsModalComponent {
       },
       (error) => {
         console.error('Error de red al intentar eliminar el cliente', error);
-        // Maneja los errores de red según sea necesario
       }
     );
   }

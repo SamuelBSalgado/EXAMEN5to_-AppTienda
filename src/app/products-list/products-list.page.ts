@@ -38,9 +38,12 @@ export class ProductsListPage {
     this.navCtrl.navigateForward('/add-products');
   }
 
-  async openProductsModal() {
+  async openProductsModal(product: any) {
     const modal = await this.modalController.create({
       component: ProductModalComponent,
+      componentProps: {
+        productDetails: product,
+      },
     });
 
     return await modal.present();
