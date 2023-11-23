@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
+import { ProductModalComponent } from '../product-modal/product-modal.component';
 //IMPORTAR AQUÍ EL MODULO DE SELECCIÓN DE PRODUCTOS
 //COMENTARIO DE PRUEBA
 
@@ -35,5 +36,13 @@ export class ProductsListPage {
 
   openAddProductsPAGE(){
     this.navCtrl.navigateForward('/add-products');
+  }
+
+  async openProductsModal() {
+    const modal = await this.modalController.create({
+      component: ProductModalComponent,
+    });
+
+    return await modal.present();
   }
 }
