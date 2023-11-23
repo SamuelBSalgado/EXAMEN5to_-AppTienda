@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo producto</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="addProduct()">Añadir</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Agrega campos de entrada (inputs) para los datos del nuevo producto -->
+  <ion-item>
+    <ion-label position="floating">Nombre del Producto</ion-label>
+    <ion-input [(ngModel)]="newProduct.name" name="name" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-input [(ngModel)]="newProduct.description" name="description" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cantidad</ion-label>
+    <ion-input [(ngModel)]="newProduct.quantity" name="quantity" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio de Venta</ion-label>
+    <ion-input [(ngModel)]="newProduct.sellPrice" name="sellPrice" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio de Costo</ion-label>
+    <ion-input [(ngModel)]="newProduct.costPrice" name="costPrice" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Imagen</ion-label>
+    <ion-input [(ngModel)]="newProduct.img" name="img" type="url"></ion-input>
+  </ion-item>
+
+</ion-content>
+
+
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <ion-input placeholder="Nombre" [(ngModel)]="newProduct.name"></ion-input>
+        <ion-input placeholder="Descripción" [(ngModel)]="newProduct.description"></ion-input>
+        <ion-input placeholder="Cantidad" type="number" [(ngModel)]="newProduct.quantity"></ion-input>
+        <ion-input placeholder="Precio de venta" type="number" [(ngModel)]="newProduct.sellPrice"></ion-input>
+        <ion-input placeholder="Precio de costo" type="number" [(ngModel)]="newProduct.costPrice"></ion-input>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content> -->

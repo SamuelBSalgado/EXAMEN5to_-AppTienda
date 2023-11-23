@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 //IMPORTAR AQUÍ EL MODULO DE SELECCIÓN DE PRODUCTOS
 //COMENTARIO DE PRUEBA
 
@@ -12,7 +13,7 @@ import { ModalController } from '@ionic/angular';
 export class ProductsListPage {
   products: any[] = [];
 
-  constructor(private http: HttpClient, private modalController: ModalController) { }
+  constructor(private http: HttpClient, private modalController: ModalController, private navCtrl: NavController) { }
   
   ionViewWillEnter() {
     this.loadClients();
@@ -30,5 +31,9 @@ export class ProductsListPage {
         console.error('Error al obtener la lista de productos', error);
       }
     );
+  }
+
+  openAddProductsPAGE(){
+    this.navCtrl.navigateForward('/add-products');
   }
 }
