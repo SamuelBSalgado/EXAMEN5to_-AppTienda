@@ -5,6 +5,37 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-button expand="full" color="success">Confirmar edición</ion-button>
+
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="name" name="name" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descripción</ion-label>
+    <ion-input [(ngModel)]="description" name="description" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cantidad</ion-label>
+    <ion-input [(ngModel)]="quantity" name="quantity" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio de venta</ion-label>
+    <ion-input [(ngModel)]="sellPrice" name="sellPrice" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Precio de costo</ion-label>
+    <ion-input [(ngModel)]="costPrice" name="costPrice" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Imagen</ion-label>
+    <ion-input [(ngModel)]="img" name="img" type="text"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" color="success" (click)="confirmEdit()">Confirmar edición</ion-button>
   <ion-button expand="full" color="danger" routerLink="/products-list">Cancelar</ion-button>
 </ion-content>

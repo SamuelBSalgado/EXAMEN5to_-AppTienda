@@ -29,8 +29,6 @@ export class ProductModalComponent {
   }
 
 
-
-
   async deleteProduct(){
     const productId = await this.productDetails.id;
     const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/products/deletePRODUCT.php?id=${productId}`;
