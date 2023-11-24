@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -16,11 +17,19 @@ import { Router } from '@angular/router';
 export class ProductModalComponent {
   @Input() productDetails: any;
 
-  constructor(private modalController: ModalController, private http: HttpClient) {}
+  constructor(private modalController: ModalController, private http: HttpClient, private navCtrl: NavController) {}
 
   dismiss(){
     this.modalController.dismiss();
   }
+
+  // openEditProductPAGE(){
+  //   this.navCtrl.navigateForward('/edit-product');
+  //   this.dismiss();
+  // }
+
+
+
 
   async deleteProduct(){
     const productId = await this.productDetails.id;
@@ -40,4 +49,5 @@ export class ProductModalComponent {
       }
     );
   }
+
 }
