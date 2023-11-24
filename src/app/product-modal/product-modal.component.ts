@@ -23,10 +23,10 @@ export class ProductModalComponent {
     this.modalController.dismiss();
   }
 
-  // openEditProductPAGE(){
-  //   this.navCtrl.navigateForward('/edit-product');
-  //   this.dismiss();
-  // }
+  openEditProductPAGE(){
+    this.navCtrl.navigateForward('/edit-product-page');
+    this.dismiss();
+  }
 
 
 
