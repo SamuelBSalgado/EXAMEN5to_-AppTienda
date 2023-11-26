@@ -14,6 +14,11 @@
 <ion-content [fullscreen]="true">
   
   <ion-item>
+    <ion-label position="floating">Id de usuario</ion-label>
+    <ion-input [(ngModel)]="newClient.id_user" name="id_user" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
     <ion-label position="floating">Nombre del Cliente</ion-label>
     <ion-input [(ngModel)]="newClient.name" name="name" type="text"></ion-input>
   </ion-item>

@@ -14,7 +14,7 @@ export class AddClientsPage {
   constructor(private http: HttpClient, private router: Router) { }
 
   addClient() {
-    const queryString = `name=${encodeURIComponent(this.newClient.name)}&address=${encodeURIComponent(this.newClient.address)}&email=${encodeURIComponent(this.newClient.email)}&phone=${encodeURIComponent(this.newClient.phone)}&photo=${encodeURIComponent(this.newClient.photo)}&paymentDate=${encodeURIComponent(this.newClient.paymentDate)}&day=${encodeURIComponent(this.newClient.day)}&hour=${encodeURIComponent(this.newClient.hour)}`;
+    const queryString = `id_user=${encodeURIComponent(this.newClient.id_user)}&name=${encodeURIComponent(this.newClient.name)}&address=${encodeURIComponent(this.newClient.address)}&email=${encodeURIComponent(this.newClient.email)}&phone=${encodeURIComponent(this.newClient.phone)}&photo=${encodeURIComponent(this.newClient.photo)}&paymentDate=${encodeURIComponent(this.newClient.paymentDate)}&day=${encodeURIComponent(this.newClient.day)}&hour=${encodeURIComponent(this.newClient.hour)}`;
     const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/clients/addCLIENT.php?${queryString}`;
 
     this.http.get(url).subscribe(
@@ -31,5 +31,4 @@ export class AddClientsPage {
       }
     );
   }
-// Comentario prueba
 }

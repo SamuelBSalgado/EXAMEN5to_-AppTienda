@@ -42,7 +42,8 @@ const routes: Routes = [
   {
     path: 'add-products',
     loadChildren: () => import('./add-products/add-products.module').then( m => m.AddProductsPageModule)
-  },  {
+  },
+  {
     path: 'edit-product-page',
     loadChildren: () => import('./edit-product-page/edit-product-page.module').then( m => m.EditProductPAGEPageModule)
   },
