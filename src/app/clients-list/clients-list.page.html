@@ -4,6 +4,9 @@
       <ion-back-button defaultHref="/dashboard"></ion-back-button>
     </ion-buttons>
     <ion-title>Clientes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="OpenaddClientPAGE()">Añadir</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +21,6 @@
         <p>Dirección: {{ client.address }}</p>
         <p>E-mail: {{ client.email }}</p>
         <p>Teléfono: {{ client.phone }}</p>
-        <!-- <p>{{ client.photo }}</p> HACER QUE ESTO SEA LA IMAGEN QUE SE MUESTRA Y BORRARLO DE AQUÍ -->
         <p>Fecha de pago: {{ client.paymentDate }}</p>
         <p>Día de pago: {{ client.day }}</p>
         <p>Hora de pago: {{ client.hour }}</p>

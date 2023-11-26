@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import { ClientDetailsModalComponent } from '../client-details-modal/client-details-modal.component';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-clients-list',
@@ -11,7 +12,7 @@ import { ClientDetailsModalComponent } from '../client-details-modal/client-deta
 export class ClientsListPage {
   clients: any[] = [];
 
-  constructor(private http: HttpClient, private modalController: ModalController) { }
+  constructor(private http: HttpClient, private modalController: ModalController, private navCtrl: NavController) { }
 
   ionViewWillEnter() {
     this.loadClients();
@@ -23,12 +24,16 @@ export class ClientsListPage {
     this.http.get(url).subscribe(
       (response: any) => {
         this.clients = response;
-        console.log('Sí jala');
+        console.log('Mostrando clientes');
       },
       (error) => {
         console.error('Error al obtener la lista de clientes', error);
       }
     );
+  }
+
+  OpenaddClientPAGE() {
+    this.navCtrl.navigateForward('/add-clients');
   }
 
   async openClientDetailsModal(client: any){
