@@ -23,7 +23,11 @@ export class DashboardPage {
   }
 
   goToClientsList(){
-    this.navCtrl.navigateForward('/clients-list');
+    this.navCtrl.navigateForward('/clients-list', {
+      state: {
+        userId: this.userId
+      }
+    });
   }
 
   goToProductsList(){
