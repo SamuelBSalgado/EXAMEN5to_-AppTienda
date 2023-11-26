@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'edit-product-page',
     loadChildren: () => import('./edit-product-page/edit-product-page.module').then( m => m.EditProductPAGEPageModule)
   },
+  {
+    path: 'add-clients',
+    loadChildren: () => import('./add-clients/add-clients.module').then( m => m.AddClientsPageModule)
+  },
 
   // {
   //   path: 'edit-product',
