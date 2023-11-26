@@ -14,7 +14,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngFor="let product of products">
+    <ion-item *ngFor="let product of products" (click)="openProductsModal(product)">
       <img [src]="product.img" alt="Product Photo">
       
       <ion-label>
