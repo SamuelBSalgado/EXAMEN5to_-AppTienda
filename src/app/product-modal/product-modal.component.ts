@@ -23,8 +23,12 @@ export class ProductModalComponent {
     this.modalController.dismiss();
   }
 
-  openEditProductPAGE(){
-    this.navCtrl.navigateForward('/edit-product-page');
+  async openEditProductPAGE(){
+    this.navCtrl.navigateForward(['/edit-product-page'], {
+      state: { 
+        productDetails: await this.productDetails
+      }
+    });
     this.dismiss();
   }
 
