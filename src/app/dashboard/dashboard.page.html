@@ -8,6 +8,12 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <!-- Nuevo elemento para mostrar el ID del usuario -->
+  <ion-item>
+    <ion-label>ID de Usuario:</ion-label>
+    <ion-text>{{ userId }}</ion-text>
+  </ion-item>
+
   <ion-button expand="full" (click)="goToClientsList()">Clientes</ion-button>
   <ion-button expand="full" (click)="goToProductsList()">Productos</ion-button>
   <ion-button expand="full" routerLink="/vender">Vender</ion-button>

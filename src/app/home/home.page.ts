@@ -20,11 +20,14 @@ export class HomePage {
       password: this.password,
     };
 
-    this.http.get(url, { params, responseType: 'text' }).subscribe(
-      (response) => {
-        if (response === 'success') {
+    this.http.get(url, { params }).subscribe(
+      (response: any) => {
+        if (response.status === 'success') {
           // Autenticación exitosa
-          this.navCtrl.navigateForward('/dashboard');
+          console.log('Exito en autenticación', response.userId);
+          this.navCtrl.navigateForward('/dashboard', {
+            state: { userId: response.userId },
+          });
         } else {
           // Credenciales incorrectas
           console.error('Credenciales incorrectas');
