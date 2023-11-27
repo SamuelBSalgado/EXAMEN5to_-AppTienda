@@ -24,7 +24,7 @@ export class ClientsListPage {
       // if (this.router.getCurrentNavigation()?.extras.state) {
       //   this.userId = this.router.getCurrentNavigation().extras.state.userId;
       // }
-    })
+    });
   }
 
   ionViewWillEnter() {

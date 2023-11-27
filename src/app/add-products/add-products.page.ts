@@ -16,7 +16,7 @@ export class AddProductsPage {
   }
 
   addProduct(){
-    const queryString = `name=${encodeURIComponent(this.newProduct.name)}&description=${encodeURIComponent(this.newProduct.description)}&quantity=${encodeURIComponent(this.newProduct.quantity)}&sellPrice=${encodeURIComponent(this.newProduct.sellPrice)}&costPrice=${encodeURIComponent(this.newProduct.costPrice)}&img=${encodeURIComponent(this.newProduct.img)}`;
+    const queryString = `id_user=${encodeURIComponent(this.newProduct.id_user)}&name=${encodeURIComponent(this.newProduct.name)}&description=${encodeURIComponent(this.newProduct.description)}&quantity=${encodeURIComponent(this.newProduct.quantity)}&sellPrice=${encodeURIComponent(this.newProduct.sellPrice)}&costPrice=${encodeURIComponent(this.newProduct.costPrice)}&img=${encodeURIComponent(this.newProduct.img)}`;
     const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/products/addPRODUCT.php?${queryString}`;
 
     this.http.get(url).subscribe(
