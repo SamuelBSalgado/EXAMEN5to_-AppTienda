@@ -8,11 +8,11 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <p>Id de usuario: {{userId}}</p>
   <ion-item>
     <!-- Mostrar detalles del cliente aquí -->
   </ion-item>
-
-  <ion-button expand="full" color="success" (click)="openProductsToClient(clientDetails.id)">Vender</ion-button>
+  <ion-button expand="full" color="success" (click)="openProductsToClient()">Vender</ion-button>
   <!-- <ion-button expand="full" color="primary" (click)="editClient()">Editar Cliente</ion-button> -->
   <ion-button expand="full" color="danger" (click)="deleteClient()">Eliminar Cliente</ion-button>
 </ion-content>

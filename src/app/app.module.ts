@@ -12,9 +12,11 @@ import { FormsModule } from '@angular/forms';
 
 import { ProductModalModule } from './product-modal/product-modal.module';
 
+import { ClientProductComponentModule } from './client-product-component/client-product-component.module';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, ProductModalModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule, ProductModalModule, ClientProductComponentModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

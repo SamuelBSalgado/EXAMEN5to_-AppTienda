@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Vender producto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Mostrar detalles del producto aquí -->
+  <ion-item>
+    <ion-label>ID del Producto:</ion-label>
+    <ion-text>{{ productDetails.id }}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nombre:</ion-label>
+    <ion-text>{{ productDetails.name }}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripción:</ion-label>
+    <ion-text>{{ productDetails.description }}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-label>Cantidad Disponible:</ion-label>
+    <ion-text>{{ productDetails.quantity }}</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-label>Precio de Venta:</ion-label>
+    <ion-text>{{ productDetails.sellPrice }} MXN</ion-text>
+  </ion-item>
+
+  <!-- Ingresar el ID del cliente y la cantidad -->
+  <ion-item>
+    <ion-label position="stacked">ID del Cliente</ion-label>
+    <ion-input [(ngModel)]="clientId" type="number" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Cantidad a Vender</ion-label>
+    <ion-input [(ngModel)]="quantityToSell" type="number" required></ion-input>
+  </ion-item>
+
+  <!-- Botón para confirmar la venta -->
+  <ion-button expand="full" color="success" (click)="confirmSale()">Confirmar Venta</ion-button>
+</ion-content>
+
+
+
+
+
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Vender producto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p>Id de usuario: {{userId}}</p>
+  <ion-item>
+    // Mostrar detalles del producto aquí
+  </ion-item>
+  <ion-button expand="full" color="success" (click)="">Vender</ion-button>
+</ion-content> -->

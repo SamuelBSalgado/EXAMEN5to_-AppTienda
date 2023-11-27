@@ -51,11 +51,12 @@ export class ClientsListPage {
     this.navCtrl.navigateForward('/add-clients');
   }
 
-  async openClientDetailsModal(client: any){
+  async openClientDetailsModal(client: any, userId: any){
     const modal = await this.modalController.create({
       component: ClientDetailsModalComponent,
       componentProps: {
         clientDetails: client,
+        userId: userId,
       },
     });
 
