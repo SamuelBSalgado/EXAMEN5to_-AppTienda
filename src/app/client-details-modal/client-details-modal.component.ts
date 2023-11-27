@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
 // import { EditClientModalComponent } from '../edit-client-modal/edit-client-modal.component';
 
 
@@ -16,13 +16,27 @@ import { Router } from '@angular/router';
   templateUrl: './client-details-modal.component.html',
   styleUrls: ['./client-details-modal.component.scss'],
 })
-export class ClientDetailsModalComponent {
+export class ClientDetailsModalComponent implements OnInit {
   @Input() clientDetails: any;
+  @Input() userId: any;
 
-  constructor(private modalController: ModalController, private http: HttpClient, private router: Router) {}
+  constructor(private modalController: ModalController, private http: HttpClient, private router: Router, private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      const navigationExtras = this.router.getCurrentNavigation()?.extras;
+      if (navigationExtras && navigationExtras.state) {
+        this.userId = navigationExtras.state['userId'];
+      }
+    });
+  }
+
+  ngOnInit() {
+    console.log('Id del usuario mostrandose en modal: ', this.userId);
+  }
 
   dismiss(){
-    this.modalController.dismiss();
+    this.modalController.dismiss({
+      userId: this.userId,
+    });
   }
 
   async deleteClient() {
@@ -46,10 +60,20 @@ export class ClientDetailsModalComponent {
     );
   }
 
-  async openProductsToClient(clientId: number){
-    this.router.navigate(['/client-product-list', { id: clientId }]);
+  async openProductsToClient() {
+    const clientId = await this.clientDetails.id;
+    this.router.navigate(['/client-product-list', { id: clientId, userId: this.userId }]);
+    // this.router.navigate(['/client-product-list', { id: this.clientDetails.id }]);
     this.dismiss();
   }
+  
+
+  // async openProductsToClient(clientId: number, userId: any){
+  //   // const clientId = await this.clientDetails.id;
+  //   this.router.navigate(['/client-product-list', {id: clientId}]);
+  //   console.log(userId);
+  //   this.dismiss();
+  // }
 
   // async editClient() {
   //   const editModal = await this.modalController.create({
