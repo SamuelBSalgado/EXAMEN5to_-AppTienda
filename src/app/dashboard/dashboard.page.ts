@@ -50,4 +50,12 @@ export class DashboardPage {
     // this.dismiss();
   }
 
+  openReports() {
+    this.navCtrl.navigateForward('/reportes', {
+      state: {
+        userId: this.userId
+      }
+    });
+  }
+
 }
