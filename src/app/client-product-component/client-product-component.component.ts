@@ -11,13 +11,14 @@ import { ClientProductComponentModule } from './client-product-component.module'
 export class ClientProductComponentComponent {
   ventas: any[] = [];
   @Input() productDetails: any;
+  @Input() id_user: any;
 
 
   clientId: any; //Para ingresar a quien le quiero vender
   quantityToSell: any;; //Para ingresar cuánto quiero vender
 
   constructor(private modalController: ModalController, private http: HttpClient) {
-    
+    console.log(this.id_user);
   }
 
   // Método para cerrar el modal
@@ -36,13 +37,14 @@ export class ClientProductComponentComponent {
     });
     console.log(this.ventas);
 
+    const idUser = this.id_user;
     const id_client = this.clientId;
     const id_product = this.productDetails.id;
     const name_product = this.productDetails.name;
     const description = this.productDetails.description;
     const quantity = this.quantityToSell;
     const cost = this.productDetails.sellPrice * quantity;
-    const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/ventas/addVenta.php?id_client=${id_client}&id_product=${id_product}&name_product=${name_product}&description=${description}&quantity=${quantity}&cost=${cost}`;
+    const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/ventas/addVenta.php?id_user=${idUser}&id_client=${id_client}&id_product=${id_product}&name_product=${name_product}&description=${description}&quantity=${quantity}&cost=${cost}`;
 
     this.http.get(url).subscribe(
       (response: any) => {

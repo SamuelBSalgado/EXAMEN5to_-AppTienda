@@ -53,7 +53,8 @@ export class VenderPage {
     const modal = await this.modalController.create({
       component: ClientProductComponentComponent,
       componentProps: {
-        productDetails: product
+        productDetails: product,
+        id_user: this.userId
       },
     });
 
