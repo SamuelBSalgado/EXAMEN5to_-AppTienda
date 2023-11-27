@@ -31,7 +31,11 @@ export class DashboardPage {
   }
 
   goToProductsList(){
-    this.navCtrl.navigateForward('/products-list');
+    this.navCtrl.navigateForward('/products-list', {
+      state: {
+        userId: this.userId
+      }
+    });
   }
 
 }
