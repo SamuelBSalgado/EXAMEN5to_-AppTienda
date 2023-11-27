@@ -60,12 +60,16 @@ export class ClientDetailsModalComponent implements OnInit {
     );
   }
 
-  async openProductsToClient() {
-    const clientId = await this.clientDetails.id;
-    this.router.navigate(['/client-product-list', { id: clientId, userId: this.userId }]);
-    // this.router.navigate(['/client-product-list', { id: this.clientDetails.id }]);
-    this.dismiss();
+  async openEditClient() {
+    console.log('Editar usuario');
   }
+
+  // async openProductsToClient() {
+  //   const clientId = await this.clientDetails.id;
+  //   this.router.navigate(['/client-product-list', { id: clientId, userId: this.userId }]);
+  //   // this.router.navigate(['/client-product-list', { id: this.clientDetails.id }]);
+  //   this.dismiss();
+  // }
   
 
   // async openProductsToClient(clientId: number, userId: any){

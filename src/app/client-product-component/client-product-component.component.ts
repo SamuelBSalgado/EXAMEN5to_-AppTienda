@@ -1,5 +1,3 @@
-// client-product-component.component.ts
-
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
@@ -14,12 +12,13 @@ export class ClientProductComponentComponent {
   ventas: any[] = [];
   @Input() productDetails: any;
 
-  // Variable para almacenar el ID del cliente
-  clientId: number = 0;
-  productId: number = 0;
-  quantityToSell: number = 0;
 
-  constructor(private modalController: ModalController, private http: HttpClient) {}
+  clientId: any; //Para ingresar a quien le quiero vender
+  quantityToSell: any;; //Para ingresar cuánto quiero vender
+
+  constructor(private modalController: ModalController, private http: HttpClient) {
+    
+  }
 
   // Método para cerrar el modal
   dismiss() {
@@ -28,32 +27,35 @@ export class ClientProductComponentComponent {
 
   // Método para confirmar la venta
   confirmSale() {
-    //AQUÍ DEBO HACER QUE SE AGREGUE AL ARRAY QUE SE ALOJE EN EL BOTÓN VENTAS
+    //AQUÍ DEBO HACER QUE SE AGREGUE AL ARRAY
     this.ventas.push({
       clientId: this.clientId,
-      productId: this.productId,
+      productId: this.productDetails.id,
       quantity: this.quantityToSell,
+      price: this.quantityToSell * this.productDetails.sellPrice
     });
-
     console.log(this.ventas);
 
-    this.dismiss();
-    // // Lógica para enviar la información de la venta al servidor usando una solicitud GET
-    // const url = `URL_DEL_SERVICIO_PARA_CONFIRMAR_VENTA?productId=${this.productDetails.id}&clientId=${this.clientId}`;
+    const id_client = this.clientId;
+    const id_product = this.productDetails.id;
+    const name_product = this.productDetails.name;
+    const description = this.productDetails.description;
+    const quantity = this.quantityToSell;
+    const cost = this.productDetails.sellPrice * quantity;
+    const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/ventas/addVenta.php?id_client=${id_client}&id_product=${id_product}&name_product=${name_product}&description=${description}&quantity=${quantity}&cost=${cost}`;
 
-    // this.http.get(url).subscribe(
-    //   (response: any) => {
-    //     if (response.success) {
-    //       console.log('Venta confirmada con éxito');
-    //       // Puedes agregar más lógica aquí según tus necesidades
-    //       this.dismiss();
-    //     } else {
-    //       console.error('Error al confirmar la venta');
-    //     }
-    //   },
-    //   (error) => {
-    //     console.error('Error de red al intentar confirmar la venta', error);
-    //   }
-    // );
+    this.http.get(url).subscribe(
+      (response: any) => {
+        if (response.success) {
+          console.log('Venta generada con éxito');
+        } else {
+          console.log('Error al efectuar la venta');
+        }
+      },
+      (error) => {
+        console.error('Error de red para efectuar la venta', error);
+      }
+    );
+
   }
 }

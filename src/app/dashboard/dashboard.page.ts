@@ -38,4 +38,16 @@ export class DashboardPage {
     });
   }
 
+  async openProductsToSell() {
+    this.navCtrl.navigateForward('/vender', {
+      state: {
+        userId: this.userId
+      }
+    });
+    // const clientId = await this.clientDetails.id;
+    // this.router.navigate(['/client-product-list', { id: clientId, userId: this.userId }]);
+    // this.router.navigate(['/client-product-list', { id: this.clientDetails.id }]);
+    // this.dismiss();
+  }
+
 }
