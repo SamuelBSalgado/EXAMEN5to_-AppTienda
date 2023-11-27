@@ -44,7 +44,9 @@ export class ClientProductComponentComponent {
     const description = this.productDetails.description;
     const quantity = this.quantityToSell;
     const cost = this.productDetails.sellPrice * quantity;
-    const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/ventas/addVenta.php?id_user=${idUser}&id_client=${id_client}&id_product=${id_product}&name_product=${name_product}&description=${description}&quantity=${quantity}&cost=${cost}`;
+    const img = this.productDetails.img
+
+    const url = `https://samuelucol.000webhostapp.com/PROYECTO5i/ventas/addVenta.php?id_user=${idUser}&id_client=${id_client}&id_product=${id_product}&name_product=${name_product}&description=${description}&quantity=${quantity}&cost=${cost}&img=${img}`;
 
     this.http.get(url).subscribe(
       (response: any) => {
