@@ -14,12 +14,16 @@
       <ion-label>
         <h2>Folio de ticket: {{ ticket.folio }}</h2>
         <p>Id cliente: {{ ticket.id_client }}</p>
-        <p>Nombre del producto: {{ ticket.name_product }}</p>
+        <p>Nombre: {{ ticket.name_product }}</p>
         <p>Descripción: {{ ticket.description }}</p>
         <p>Cantidad: {{ ticket.quantity }}</p>
         <p>Costo: {{ ticket.cost }}MXN</p>
         <p>Fecha de pago: {{ ticket.paymentDate }}</p>
       </ion-label>
+
+      <ion-thumbnail slot="end">
+        <img [src]="ticket.img" alt="Product Image">
+      </ion-thumbnail>
 
     </ion-item>
   </ion-list>

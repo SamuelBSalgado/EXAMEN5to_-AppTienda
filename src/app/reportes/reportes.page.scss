@@ -1,0 +1,28 @@
+ion-content {
+  ion-list {
+    ion-item {
+      ion-thumbnail {
+        border-radius: 0;
+        width: 150px; /* Ajusta el tamaño de la imagen */
+        height: auto;
+      }
+
+      ion-label {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5px;
+        flex: 1;
+
+        h2 {
+          font-size: 1.2em;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-size: 0.9em;
+          color: #777;
+        }
+      }
+    }
+  }
+}
